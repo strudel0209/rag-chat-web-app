@@ -1,6 +1,7 @@
 import { Outlet, Link } from "react-router-dom";
 import styles from "./Layout.module.css";
-import Azure from "../../assets/Azure.svg";
+/* import Azure from "../../assets/Azure.svg"; */
+import Logo from "../../assets/Logo.svg";
 import { CopyRegular, ShareRegular } from "@fluentui/react-icons";
 import { Dialog, Stack, TextField } from "@fluentui/react";
 import { useEffect, useState } from "react";
@@ -37,12 +38,13 @@ const Layout = () => {
                 <div className={styles.headerContainer}>
                     <Stack horizontal verticalAlign="center">
                         <img
-                            src={Azure}
+/*                             src={Azure} */
+                            src={Logo}
                             className={styles.headerIcon}
                             aria-hidden="true"
                         />
                         <Link to="/" className={styles.headerTitleContainer}>
-                            <h3 className={styles.headerTitle}>Azure AI</h3>
+                            <h3 className={styles.headerTitle}>Chat AI</h3>
                         </Link>
                         <div className={styles.shareButtonContainer} role="button" tabIndex={0} aria-label="Share" onClick={handleShareClick} onKeyDown={e => e.key === "Enter" || e.key === " " ? handleShareClick() : null}>
                             <ShareRegular className={styles.shareButton} />
@@ -52,11 +54,11 @@ const Layout = () => {
                 </div>
             </header>
             <Outlet />
-            <Dialog 
+            <Dialog
                 onDismiss={handleSharePanelDismiss}
                 hidden={!isSharePanelOpen}
                 styles={{
-                    
+
                     main: [{
                         selectors: {
                           ['@media (min-width: 480px)']: {
@@ -77,11 +79,11 @@ const Layout = () => {
             >
                 <Stack horizontal verticalAlign="center" style={{gap: "8px"}}>
                     <TextField className={styles.urlTextBox} defaultValue={window.location.href} readOnly/>
-                    <div 
-                        className={styles.copyButtonContainer} 
-                        role="button" 
-                        tabIndex={0} 
-                        aria-label="Copy" 
+                    <div
+                        className={styles.copyButtonContainer}
+                        role="button"
+                        tabIndex={0}
+                        aria-label="Copy"
                         onClick={handleCopyClick}
                         onKeyDown={e => e.key === "Enter" || e.key === " " ? handleCopyClick() : null}
                     >

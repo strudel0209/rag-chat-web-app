@@ -15,7 +15,8 @@ import rehypeRaw from "rehype-raw";
 import { v4 as uuidv4 } from "uuid";
 
 import styles from "./Chat.module.css";
-import Azure from "../../assets/Azure.svg";
+/* import Azure from "../../assets/Azure.svg"; */
+import Logo from "../../assets/Logo.svg";
 import { multiLingualSpeechRecognizer } from "../../util/SpeechToText";
 
 import {
@@ -136,7 +137,7 @@ const Chat = () => {
       setIsRecognizing(true);
 
       recognizerRef.current = await multiLingualSpeechRecognizer(); // Store the recognizer in the ref
-      
+
       recognizerRef.current.recognized = (s, e) => {
         if (e.result.reason === ResultReason.RecognizedSpeech) {
           const recognized = e.result.text;
@@ -226,7 +227,8 @@ const Chat = () => {
         <div className={`${styles.chatContainer} ${styles.MobileChatContainer}`}>
           {!lastQuestionRef.current ? (
             <Stack className={styles.chatEmptyState}>
-              <img src={Azure} className={styles.chatIcon} aria-hidden="true" />
+{/*               <img src={Azure} className={styles.chatIcon} aria-hidden="true" /> */}
+              <img src={Logo} className={styles.chatIcon} aria-hidden="true" />
               <h1 className={styles.chatEmptyStateTitle}>Start chatting</h1>
               <h2 className={styles.chatEmptyStateSubtitle}>
                 This chatbot is configured to answer your questions
